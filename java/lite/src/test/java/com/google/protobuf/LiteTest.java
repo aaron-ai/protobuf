@@ -2211,29 +2211,29 @@ public class LiteTest extends TestCase {
 
   public void testAddAllIteratesOnce() {
     TestAllTypesLite.newBuilder()
-        .addAllRepeatedBool(new OneTimeIterableList<>(false))
-        .addAllRepeatedInt32(new OneTimeIterableList<>(0))
-        .addAllRepeatedInt64(new OneTimeIterableList<>(0L))
-        .addAllRepeatedFloat(new OneTimeIterableList<>(0f))
-        .addAllRepeatedDouble(new OneTimeIterableList<>(0d))
-        .addAllRepeatedBytes(new OneTimeIterableList<>(ByteString.EMPTY))
-        .addAllRepeatedString(new OneTimeIterableList<>(""))
-        .addAllRepeatedNestedMessage(new OneTimeIterableList<>(NestedMessage.getDefaultInstance()))
-        .addAllRepeatedBool(new OneTimeIterable<>(false))
-        .addAllRepeatedInt32(new OneTimeIterable<>(0))
-        .addAllRepeatedInt64(new OneTimeIterable<>(0L))
-        .addAllRepeatedFloat(new OneTimeIterable<>(0f))
-        .addAllRepeatedDouble(new OneTimeIterable<>(0d))
-        .addAllRepeatedBytes(new OneTimeIterable<>(ByteString.EMPTY))
-        .addAllRepeatedString(new OneTimeIterable<>(""))
-        .addAllRepeatedNestedMessage(new OneTimeIterable<>(NestedMessage.getDefaultInstance()))
+        .addAllRepeatedBool(new OneTimeIterableList<Boolean>(false))
+        .addAllRepeatedInt32(new OneTimeIterableList<Integer>(0))
+        .addAllRepeatedInt64(new OneTimeIterableList<Long>(0L))
+        .addAllRepeatedFloat(new OneTimeIterableList<Float>(0f))
+        .addAllRepeatedDouble(new OneTimeIterableList<Double>(0d))
+        .addAllRepeatedBytes(new OneTimeIterableList<ByteString>(ByteString.EMPTY))
+        .addAllRepeatedString(new OneTimeIterableList<String>(""))
+        .addAllRepeatedNestedMessage(new OneTimeIterableList<NestedMessage>(NestedMessage.getDefaultInstance()))
+        .addAllRepeatedBool(new OneTimeIterable<Boolean>(false))
+        .addAllRepeatedInt32(new OneTimeIterable<Integer>(0))
+        .addAllRepeatedInt64(new OneTimeIterable<Long>(0L))
+        .addAllRepeatedFloat(new OneTimeIterable<Float>(0f))
+        .addAllRepeatedDouble(new OneTimeIterable<Double>(0d))
+        .addAllRepeatedBytes(new OneTimeIterable<ByteString>(ByteString.EMPTY))
+        .addAllRepeatedString(new OneTimeIterable<String>(""))
+        .addAllRepeatedNestedMessage(new OneTimeIterable<NestedMessage>(NestedMessage.getDefaultInstance()))
         .build();
   }
 
   public void testAddAllIteratesOnce_throwsOnNull() {
     TestAllTypesLite.Builder builder = TestAllTypesLite.newBuilder();
     try {
-      builder.addAllRepeatedBool(new OneTimeIterableList<>(true, false, null));
+      builder.addAllRepeatedBool(new OneTimeIterableList<Boolean>(true, false, null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 2 is null.", expected.getMessage());
@@ -2241,7 +2241,7 @@ public class LiteTest extends TestCase {
     }
 
     try {
-      builder.addAllRepeatedBool(new OneTimeIterable<>(true, false, null));
+      builder.addAllRepeatedBool(new OneTimeIterable<Boolean>(true, false, null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 2 is null.", expected.getMessage());
@@ -2250,7 +2250,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedBool(new OneTimeIterableList<>((Boolean) null));
+      builder.addAllRepeatedBool(new OneTimeIterableList<Boolean>((Boolean) null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 0 is null.", expected.getMessage());
@@ -2259,7 +2259,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedInt32(new OneTimeIterableList<>((Integer) null));
+      builder.addAllRepeatedInt32(new OneTimeIterableList<Integer>((Integer) null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 0 is null.", expected.getMessage());
@@ -2268,7 +2268,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedInt64(new OneTimeIterableList<>((Long) null));
+      builder.addAllRepeatedInt64(new OneTimeIterableList<Long>((Long) null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 0 is null.", expected.getMessage());
@@ -2277,7 +2277,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedFloat(new OneTimeIterableList<>((Float) null));
+      builder.addAllRepeatedFloat(new OneTimeIterableList<Float>((Float) null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 0 is null.", expected.getMessage());
@@ -2286,7 +2286,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedDouble(new OneTimeIterableList<>((Double) null));
+      builder.addAllRepeatedDouble(new OneTimeIterableList<Double>((Double) null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 0 is null.", expected.getMessage());
@@ -2295,7 +2295,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedBytes(new OneTimeIterableList<>((ByteString) null));
+      builder.addAllRepeatedBytes(new OneTimeIterableList<ByteString>((ByteString) null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 0 is null.", expected.getMessage());
@@ -2304,7 +2304,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedString(new OneTimeIterableList<>("", "", null, ""));
+      builder.addAllRepeatedString(new OneTimeIterableList<String>("", "", null, ""));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 2 is null.", expected.getMessage());
@@ -2313,7 +2313,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedString(new OneTimeIterable<>("", "", null, ""));
+      builder.addAllRepeatedString(new OneTimeIterable<String>("", "", null, ""));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 2 is null.", expected.getMessage());
@@ -2322,7 +2322,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedString(new OneTimeIterableList<>((String) null));
+      builder.addAllRepeatedString(new OneTimeIterableList<String>((String) null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 0 is null.", expected.getMessage());
@@ -2331,7 +2331,7 @@ public class LiteTest extends TestCase {
 
     try {
       builder = TestAllTypesLite.newBuilder();
-      builder.addAllRepeatedNestedMessage(new OneTimeIterableList<>((NestedMessage) null));
+      builder.addAllRepeatedNestedMessage(new OneTimeIterableList<NestedMessage>((NestedMessage) null));
       fail();
     } catch (NullPointerException expected) {
       assertEquals("Element at index 0 is null.", expected.getMessage());

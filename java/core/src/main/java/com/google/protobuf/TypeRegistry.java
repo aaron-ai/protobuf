@@ -154,7 +154,7 @@ public class TypeRegistry {
       types.put(message.getFullName(), message);
     }
 
-    private final Set<String> files = new HashSet<>();
-    private Map<String, Descriptor> types = new HashMap<>();
+    private final Set<String> files = new HashSet<String>();
+    private Map<String, Descriptor> types = new HashMap<String, Descriptor>();
   }
 }

@@ -2621,7 +2621,7 @@ public abstract class GeneratedMessageV3 extends AbstractMessage
       @Override
       @SuppressWarnings("unchecked")
       public Object get(GeneratedMessageV3 message) {
-        List result = new ArrayList<>();
+        List result = new ArrayList<Object>();
         for (int i = 0; i < getRepeatedCount(message); i++) {
           result.add(getRepeated(message, i));
         }
@@ -2631,7 +2631,7 @@ public abstract class GeneratedMessageV3 extends AbstractMessage
       @Override
       @SuppressWarnings("unchecked")
       public Object get(Builder builder) {
-        List result = new ArrayList<>();
+        List result = new ArrayList<Object>();
         for (int i = 0; i < getRepeatedCount(builder); i++) {
           result.add(getRepeated(builder, i));
         }
@@ -2836,7 +2836,7 @@ public abstract class GeneratedMessageV3 extends AbstractMessage
       @Override
       @SuppressWarnings("unchecked")
       public Object get(final GeneratedMessageV3 message) {
-        final List newList = new ArrayList<>();
+        final List newList = new ArrayList<Object>();
         final int size = getRepeatedCount(message);
         for (int i = 0; i < size; i++) {
           newList.add(getRepeated(message, i));
@@ -2847,7 +2847,7 @@ public abstract class GeneratedMessageV3 extends AbstractMessage
       @Override
       @SuppressWarnings("unchecked")
       public Object get(final GeneratedMessageV3.Builder builder) {
-        final List newList = new ArrayList<>();
+        final List newList = new ArrayList<Object>();
         final int size = getRepeatedCount(builder);
         for (int i = 0; i < size; i++) {
           newList.add(getRepeated(builder, i));

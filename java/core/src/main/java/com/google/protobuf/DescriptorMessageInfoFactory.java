@@ -62,7 +62,7 @@ final class DescriptorMessageInfoFactory implements MessageInfoFactory {
   private static final String GET_DEFAULT_INSTANCE_METHOD_NAME = "getDefaultInstance";
   private static final DescriptorMessageInfoFactory instance = new DescriptorMessageInfoFactory();
   private static final Set<String> specialFieldNames =
-      new HashSet<>(Arrays.asList("cached_size", "serialized_size", "class"));
+      new HashSet<String>(Arrays.asList("cached_size", "serialized_size", "class"));
 
   // Disallow construction - it's a singleton.
   private DescriptorMessageInfoFactory() {}

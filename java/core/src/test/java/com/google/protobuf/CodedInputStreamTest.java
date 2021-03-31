@@ -1202,7 +1202,7 @@ public class CodedInputStreamTest extends TestCase {
     CodedOutputStream codedOutputStream = CodedOutputStream.newInstance(outputStream);
     codedOutputStream.writeByteArrayNoTag(new byte[] { 0x0, 0x1, 0x2, 0x3, 0x4, 0x5 });
     codedOutputStream.flush();
-    final List<byte[]> maliciousCapture = new ArrayList<>();
+    final List<byte[]> maliciousCapture = new ArrayList<byte[]>();
     InputStream inputStream = new ByteArrayInputStream(outputStream.toByteArray()) {
       @Override
       public synchronized int read(byte[] b, int off, int len) {

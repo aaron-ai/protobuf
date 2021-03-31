@@ -263,7 +263,7 @@ public class JsonFormat {
           registry,
           oldRegistry,
           false,
-          Collections.unmodifiableSet(new HashSet<>(fieldsToAlwaysOutput)),
+          Collections.unmodifiableSet(new HashSet<FieldDescriptor>(fieldsToAlwaysOutput)),
           preservingProtoFieldNames,
           omittingInsignificantWhitespace,
           printingEnumsAsInts,

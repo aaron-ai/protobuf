@@ -876,7 +876,9 @@ public final class Proto2MessageInfoFactory implements MessageInfoFactory {
   private static Field field(Class<?> clazz, String name) {
     try {
       return clazz.getDeclaredField(name);
-    } catch (NoSuchFieldException | SecurityException e) {
+    } catch (NoSuchFieldException e) {
+      throw new RuntimeException(e);
+    } catch (SecurityException e) {
       throw new RuntimeException(e);
     }
   }

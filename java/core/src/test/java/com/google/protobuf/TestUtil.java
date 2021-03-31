@@ -3865,7 +3865,7 @@ public final class TestUtil {
   /** Helper class to test logged messages */
   public static class TestLogHandler extends Handler {
     /** We will keep a private list of all logged records */
-    private final List<LogRecord> list = new ArrayList<>();
+    private final List<LogRecord> list = new ArrayList<LogRecord>();
 
     /** Adds the most recently logged record to our list. */
     @Override
@@ -3881,7 +3881,7 @@ public final class TestUtil {
 
     /** Returns a snapshot of the logged records. */
     public synchronized List<LogRecord> getStoredLogRecords() {
-      List<LogRecord> result = new ArrayList<>(list);
+      List<LogRecord> result = new ArrayList<LogRecord>(list);
       return Collections.unmodifiableList(result);
     }
   }

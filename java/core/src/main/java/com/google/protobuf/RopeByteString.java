@@ -624,7 +624,7 @@ final class RopeByteString extends ByteString {
     // Stack containing the part of the string, starting from the left, that
     // we've already traversed.  The final string should be the equivalent of
     // concatenating the strings on the stack from bottom to top.
-    private final ArrayDeque<ByteString> prefixesStack = new ArrayDeque<>();
+    private final ArrayDeque<ByteString> prefixesStack = new ArrayDeque<ByteString>();
 
     private ByteString balance(ByteString left, ByteString right) {
       doBalance(left);
@@ -735,7 +735,7 @@ final class RopeByteString extends ByteString {
     private PieceIterator(ByteString root) {
       if (root instanceof RopeByteString) {
         RopeByteString rbs = (RopeByteString) root;
-        breadCrumbs = new ArrayDeque<>(rbs.getTreeDepth());
+        breadCrumbs = new ArrayDeque<RopeByteString>(rbs.getTreeDepth());
         breadCrumbs.push(rbs);
         next = getLeafByLeft(rbs.left);
       } else {

@@ -114,7 +114,7 @@ public class LazyMessageLiteTest extends TestCase {
   }
 
   public void testAddAll() {
-    ArrayList<LazyInnerMessageLite> inners = new ArrayList<>();
+    ArrayList<LazyInnerMessageLite> inners = new ArrayList<LazyInnerMessageLite>();
     int count = 4;
     for (int i = 0; i < count; i++) {
       LazyInnerMessageLite inner = LazyInnerMessageLite.newBuilder().setNum(i).build();

@@ -88,11 +88,11 @@ public final class ValuesTest extends TestCase {
     builder.addValues(Values.of(true));
     builder.addValues(Value.newBuilder().setListValue(builder.build()).build());
 
-    List<Value> list = new ArrayList<>();
+    List<Value> list = new ArrayList<Value>();
     list.add(Values.of(1));
     list.add(Values.of(2));
     list.add(Values.of(true));
-    List<Value> copyList = new ArrayList<>(list);
+    List<Value> copyList = new ArrayList<Value>(list);
     list.add(Values.of(copyList));
 
     assertThat(Values.of(list)).isEqualTo(Value.newBuilder().setListValue(builder).build());

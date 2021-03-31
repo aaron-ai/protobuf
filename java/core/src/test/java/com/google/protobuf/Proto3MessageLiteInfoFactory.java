@@ -797,7 +797,9 @@ public final class Proto3MessageLiteInfoFactory implements MessageInfoFactory {
   private static Field field(Class<?> clazz, String name) {
     try {
       return clazz.getDeclaredField(name);
-    } catch (NoSuchFieldException | SecurityException e) {
+    } catch (NoSuchFieldException e) {
+      throw new RuntimeException(e);
+    } catch (SecurityException e) {
       throw new RuntimeException(e);
     }
   }

@@ -219,7 +219,7 @@ public final class Proto2MessageFactory implements ExperimentalMessageFactory<Pr
       };
 
   private <V> Map<Integer, V> populateIntegerMap(MapValueProvider<V> provider) {
-    Map<Integer, V> map = new HashMap<>();
+    Map<Integer, V> map = new HashMap<Integer, V>();
     for (int i = 0; i < numRepeatedFields; ++i) {
       map.put(data.getInt(), provider.getValue());
     }
@@ -227,7 +227,7 @@ public final class Proto2MessageFactory implements ExperimentalMessageFactory<Pr
   }
 
   private <V> Map<Long, V> populateLongMap(MapValueProvider<V> provider) {
-    Map<Long, V> map = new HashMap<>();
+    Map<Long, V> map = new HashMap<Long, V>();
     for (int i = 0; i < numRepeatedFields; ++i) {
       map.put(data.getLong(), provider.getValue());
     }
@@ -235,7 +235,7 @@ public final class Proto2MessageFactory implements ExperimentalMessageFactory<Pr
   }
 
   private <V> Map<String, V> populateStringMap(MapValueProvider<V> provider) {
-    Map<String, V> map = new HashMap<>();
+    Map<String, V> map = new HashMap<String, V>();
     for (int i = 0; i < numRepeatedFields; ++i) {
       map.put(data.getString(), provider.getValue());
     }
@@ -243,7 +243,7 @@ public final class Proto2MessageFactory implements ExperimentalMessageFactory<Pr
   }
 
   private <V> Map<Boolean, V> populateBooleanMap(MapValueProvider<V> provider) {
-    Map<Boolean, V> map = new HashMap<>();
+    Map<Boolean, V> map = new HashMap<Boolean, V>();
     map.put(false, provider.getValue());
     map.put(true, provider.getValue());
     return map;
@@ -461,7 +461,7 @@ public final class Proto2MessageFactory implements ExperimentalMessageFactory<Pr
   }
 
   public List<Proto2Message> newMessagesMissingRequiredFields() {
-    List<Proto2Message> results = new ArrayList<>();
+    List<Proto2Message> results = new ArrayList<Proto2Message>();
     for (int i = 71; i <= 88; ++i) {
       Proto2Message.Builder builder = Proto2Message.newBuilder();
       populateRequiredFields(builder, i);

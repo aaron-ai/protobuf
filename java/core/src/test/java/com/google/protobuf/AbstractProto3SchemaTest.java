@@ -51,7 +51,7 @@ public abstract class AbstractProto3SchemaTest extends AbstractSchemaTest<Proto3
 
   @Override
   protected List<ByteBuffer> serializedBytesWithInvalidUtf8() throws IOException {
-    List<ByteBuffer> invalidBytes = new ArrayList<>();
+    List<ByteBuffer> invalidBytes = new ArrayList<ByteBuffer>();
     byte[] invalid = new byte[] {(byte) 0x80};
     {
       ByteBuffer buffer = ByteBuffer.allocate(100);

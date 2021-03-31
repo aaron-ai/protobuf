@@ -205,7 +205,7 @@ public class ArrayDecodersTest extends TestCase {
         };
     try {
       ArrayDecoders.decodeBytesList(
-          TAG, badBytesList, 0, badBytes.length, new ProtobufArrayList<>(), registers);
+          TAG, badBytesList, 0, badBytes.length, new ProtobufArrayList(), registers);
       fail();
     } catch (InvalidProtocolBufferException expected) {
     }

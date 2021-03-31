@@ -497,13 +497,13 @@ public final class MapForProto2LiteTest extends TestCase {
   }
 
   private static <K, V> Map<K, V> newMap(K key1, V value1) {
-    Map<K, V> map = new HashMap<>();
+    Map<K, V> map = new HashMap<K, V>();
     map.put(key1, value1);
     return map;
   }
 
   private static <K, V> Map<K, V> newMap(K key1, V value1, K key2, V value2) {
-    Map<K, V> map = new HashMap<>();
+    Map<K, V> map = new HashMap<K, V>();
     map.put(key1, value1);
     map.put(key2, value2);
     return map;

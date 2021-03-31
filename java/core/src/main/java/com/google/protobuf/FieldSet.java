@@ -219,7 +219,7 @@ final class FieldSet<T extends FieldSet.FieldDescriptorLite<T>> {
     if (value instanceof LazyField) {
       map.put(key, ((LazyField) value).getValue());
     } else if (copyList && value instanceof List) {
-      map.put(key, new ArrayList<>((List<?>) value));
+      map.put(key, new ArrayList((List<?>) value));
     } else {
       map.put(key, value);
     }
@@ -526,7 +526,7 @@ final class FieldSet<T extends FieldSet.FieldDescriptorLite<T>> {
     if (descriptor.isRepeated()) {
       Object value = getField(descriptor);
       if (value == null) {
-        value = new ArrayList<>();
+        value = new ArrayList();
       }
       for (Object element : (List) otherValue) {
         ((List) value).add(cloneIfMutable(element));
@@ -945,7 +945,7 @@ final class FieldSet<T extends FieldSet.FieldDescriptorLite<T>> {
         fieldsForBuild = cloneAllFieldsMap(fields, /* copyList */ false);
         replaceBuilders(fieldsForBuild);
       }
-      FieldSet<T> fieldSet = new FieldSet<>(fieldsForBuild);
+      FieldSet<T> fieldSet = new FieldSet<T>(fieldsForBuild);
       fieldSet.hasLazyField = hasLazyField;
       return fieldSet;
     }
@@ -988,7 +988,7 @@ final class FieldSet<T extends FieldSet.FieldDescriptorLite<T>> {
               // existing Message.Builder will still be able to modify the inner fields of the
               // original FieldSet.Builder.
               if (list == value) {
-                list = new ArrayList<>(list);
+                list = new ArrayList(list);
               }
               list.set(i, newElement);
             }
@@ -1195,7 +1195,7 @@ final class FieldSet<T extends FieldSet.FieldDescriptorLite<T>> {
       final Object existingValue = getField(descriptor);
       List<Object> list;
       if (existingValue == null) {
-        list = new ArrayList<>();
+        list = new ArrayList<Object>();
         fields.put(descriptor, list);
       } else {
         list = (List<Object>) existingValue;
@@ -1266,7 +1266,7 @@ final class FieldSet<T extends FieldSet.FieldDescriptorLite<T>> {
       if (descriptor.isRepeated()) {
         Object value = getField(descriptor);
         if (value == null) {
-          value = new ArrayList<>();
+          value = new ArrayList();
         }
         for (Object element : (List) otherValue) {
           ((List) value).add(FieldSet.cloneIfMutable(element));

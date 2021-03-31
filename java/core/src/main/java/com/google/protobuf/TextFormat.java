@@ -423,7 +423,7 @@ public final class TextFormat {
         throws IOException {
       // Sort map field entries by key
       if (field.isMapField()) {
-        List<MapEntryAdapter> adapters = new ArrayList<>();
+        List<MapEntryAdapter> adapters = new ArrayList<MapEntryAdapter>();
         for (Object entry : (List<?>) value) {
           adapters.add(new MapEntryAdapter(entry, field));
         }
@@ -490,11 +490,11 @@ public final class TextFormat {
         }
         switch (fieldType) {
           case BOOLEAN:
-            return Boolean.compare((boolean) getKey(), (boolean) b.getKey());
+            return Boolean.compare((Boolean) getKey(), (Boolean) b.getKey());
           case LONG:
-            return Long.compare((long) getKey(), (long) b.getKey());
+            return Long.compare((Long) getKey(), (Long) b.getKey());
           case INT:
-            return Integer.compare((int) getKey(), (int) b.getKey());
+            return Integer.compare((Integer) getKey(), (Integer) b.getKey());
           case STRING:
             String aString = (String) getKey();
             String bString = (String) b.getKey();

@@ -272,10 +272,12 @@ public class ExtensionRegistryFactoryTest extends TestCase {
               resolveClass(loadedClass);
             }
           }
-        } catch (ClassNotFoundException | SecurityException e) {
+        } catch (ClassNotFoundException e) {
           // Java 8+ would throw a SecurityException if we attempt to find a loaded class from
           // java.lang.* package. We don't really care about those anyway, so just delegate to the
           // parent class loader.
+          loadedClass = super.loadClass(name, resolve);
+        } catch (SecurityException e) {
           loadedClass = super.loadClass(name, resolve);
         }
         return loadedClass;

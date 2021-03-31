@@ -751,7 +751,7 @@ public class MapTest extends TestCase {
   }
 
   private static void setMapValues(Message.Builder builder, String name, Map<?, ?> values) {
-    List<Message> entryList = new ArrayList<>();
+    List<Message> entryList = new ArrayList<Message>();
     for (Map.Entry<?, ?> entry : values.entrySet()) {
       entryList.add(newMapEntry(builder, name, entry.getKey(), entry.getValue()));
     }
@@ -760,7 +760,7 @@ public class MapTest extends TestCase {
   }
 
   private static <K, V> Map<K, V> mapForValues(K key1, V value1, K key2, V value2) {
-    Map<K, V> map = new HashMap<>();
+    Map<K, V> map = new HashMap<K, V>();
     map.put(key1, value1);
     map.put(key2, value2);
     return map;
@@ -1002,7 +1002,7 @@ public class MapTest extends TestCase {
     TestMap message = builder.build();
 
     assertEquals(
-        Arrays.asList("1", "2", "3"), new ArrayList<>(message.getStringToInt32Field().keySet()));
+        Arrays.asList("1", "2", "3"), new ArrayList<String>(message.getStringToInt32Field().keySet()));
   }
 
   public void testGetMap() {
@@ -1335,10 +1335,10 @@ public class MapTest extends TestCase {
     output.flush();
 
     CodedInputStream input = CodedInputStream.newInstance(serialized);
-    List<Integer> int32Keys = new ArrayList<>();
-    List<Integer> uint32Keys = new ArrayList<>();
-    List<Long> int64Keys = new ArrayList<>();
-    List<String> stringKeys = new ArrayList<>();
+    List<Integer> int32Keys = new ArrayList<Integer>();
+    List<Integer> uint32Keys = new ArrayList<Integer>();
+    List<Long> int64Keys = new ArrayList<Long>();
+    List<String> stringKeys = new ArrayList<String>();
     int tag;
     while (true) {
       tag = input.readTag();
@@ -1449,20 +1449,20 @@ public class MapTest extends TestCase {
   }
 
   private static <K, V> Map<K, V> newMap(K key1, V value1) {
-    Map<K, V> map = new HashMap<>();
+    Map<K, V> map = new HashMap<K, V>();
     map.put(key1, value1);
     return map;
   }
 
   private static <K, V> Map<K, V> newMap(K key1, V value1, K key2, V value2) {
-    Map<K, V> map = new HashMap<>();
+    Map<K, V> map = new HashMap<K, V>();
     map.put(key1, value1);
     map.put(key2, value2);
     return map;
   }
 
   private static <K, V> Map<K, V> newMap(K key1, V value1, K key2, V value2, K key3, V value3) {
-    Map<K, V> map = new HashMap<>();
+    Map<K, V> map = new HashMap<K, V>();
     map.put(key1, value1);
     map.put(key2, value2);
     map.put(key3, value3);
